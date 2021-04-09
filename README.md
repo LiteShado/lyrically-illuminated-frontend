@@ -34,3 +34,22 @@
 * DELETE '/user/:id/', user can delete account
 * GET'/logout', user can sign out of the account
 
+
+## MVP
+
+* New user can sign up and create a new account
+* Pre-existing user can log in using their email and password
+* Once logged in, a user can select one mood and one tage
+* The mood/tag combination accurately pulls in a song that fits the description
+* User can view the artist name and song title 
+* User can log out
+* User can delete their account
+
+## Stretch Goals
+
+* Users can log in, view and edit their tags and moods
+* User can add up to 3 tags and 3 moods
+* User can hit a "next" button, which supplies them with more than one song
+* Each song's lyrics are posted, along with song title and artist name
+
+
