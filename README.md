@@ -6,7 +6,7 @@
 
 #### User can create an account, and based upon their tag and mood choices, will be fed a list of 4-line quotes from popular songs.
 
-#### User can delete tags, mood, and even account whenever they choose.###
+#### User can delete tags, mood, and even account whenever they choose.
 
 
 # User Story
