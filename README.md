@@ -1,6 +1,6 @@
-# lyrically-illuminated-frontend
+# Lyrically iLLuminated
 
-##Goals##
+## Goals
 
 ### Providing user with platform to save a list of 3 tags and moods that reflect the type of song lyrics that they want to inspire them.
 
