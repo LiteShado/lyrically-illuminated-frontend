@@ -13,7 +13,11 @@
     <div>
         <div class="userSignUp hidden">
             <h1 class="lyrical">Lyrically iLLuminated</h1>
+
+
 <!-- LOG IN OPTION -->
+
+
 <h1 class="logInTitle">Log In</h1>
 <form class="loginForm hidden">
     <label for="userEmail">Email</label>
@@ -24,6 +28,8 @@
 
     <br>
 </form>
+<button class="loginButton">Sign Up!</button>
+
 
 <!-- SIGN UP OPTION -->
 
@@ -57,7 +63,7 @@
                <!-- <input type="submit" value="signup"> -->
            </form>
            <br>
-           <button class="loginButton">Sign Up!</button>
+           <button class="submit">Sign Up!</button>
 
        </div>
         <div class="userAccount hidden">
@@ -82,7 +88,7 @@
     <!-- AFTER LOG IN -->
     <!-- /////////////////////////////////// -->
 
-
+    <div class="saved hidden">
         <div class="userMood hidden">
             <div class="viewUserMood">
                 <p>Your saved mood:</p>
@@ -101,15 +107,16 @@
                 </ul>
                 <button class="editMoodButton">Edit Mood</button>
                 <button class="editTagButton">Edit Tag</button>
+                <button class="success">Looks Good!</button>
 
             </div>
         </div>
 
-    <!-- //////////////////////////////////// -->
-    <!-- ACCOUNT INFO -->
-    <!-- /////////////////////////////////// -->
+    </div>
 
-    <h1 class="signUpTitle hidden">Edit Account Info</h1>
+    <div class="newInput">
+
+    <h1 class="newInputForm hidden">Edit Account Info</h1>
     <form class="signup-form hidden">
         <label for="userName">Name</label>
         <input type="text" id="userName">
@@ -136,10 +143,31 @@
              <option value="Party">Party</option>
              <option value="Love">Love</option>
          </select>
-        <!-- <input type="submit" value="signup"> -->
+        <input type="submit" value="Submit Changes">
     </form>
-    <br>
-    <button class="editAccountSubmit hidden">Submit Changes</button>
+    </div>
+    <!-- //////////////////////////////////// -->
+    <!-- ACCOUNT INFO -->
+    <!-- /////////////////////////////////// -->
+
+    <form class="success hidden">
+        <label for="userName"></label>
+        <input type="text" id="successName">
+
+        <label for="userEmail"></label>
+        <input type="text" id="successEmail">
+
+        <label for="userMood"></label>
+        <input type="text" id="successMood">
+
+        <label for="userTag"></label>
+        <input type="text" id="successTag">
+
+        <input type="submit" value="iLLuminate Me!">
+
+        <br>
+
+
 
     <!-- //////////////////////////////////// -->
     <!-- MUSIC PRESENTATION -->
@@ -168,6 +196,8 @@
 
         </div>
     </div>
+    <button class="signOutButton hidden">Sign Out</button>
+
 
     <!-- //////////////////////////////////// -->
     <!-- DELETE ACCOUNT -->

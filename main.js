@@ -1,12 +1,59 @@
 
-const userSignUp = document.querySelector('.userSignUp')
-const userSignUpForm = document.querySelector('.signup-form')
+// LOGIN OR SIGNUP SCREEN
+
+const showLoginScreen = () => {
+    userAccount.classList.add('hidden')
+    signUpScreen.classList.add('hidden')
+    loginForm.classList.remove('hidden')
+    success.classList.add('hidden')
+    saved.classList.add('hidden')
+    newInput.classList.add('hidden')
+    newInputForm.classList.add('hidden')
+
+}
+loginButton.addEventListener('click', () => {
+    switchToLogin()
+})
 
 
+let signUpButton= document.querySelector('.signUpButton')
+
+const switchToSignUp = () => {
+    userAccount.classList.add('hidden')
+    signUpScreen.classList.remove('hidden')
+    loginScreen.classList.add('hidden')
+    success.classList.add('hidden')
+    saved.classList.add('hidden')
+    newInput.classList.add('hidden')
+    newInputForm.classList.add('hidden')
+
+}
+signUpButton.addEventListener('click', () => {
+    switchToSignUp()
+})
+
+// const userSignUp = document.querySelector('.userSignUp')
+const userSignUp = document.querySelector('.signup-form')
+
+userSignUp.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    const name = document.querySelector('#userName').value
+
+    const email = document.querySelector('#userEmail').value
+
+    const password = document.querySelector('#userPassword').value
+
+// SHOW ACCOUNT
 const showAccount = () => {
-    userAccount.classList.remove('hidden')
+    userAccount.classList.add('hidden')
     userSignUp.classList.add('hidden')
     loginForm.classList.add('hidden')
+    success.classList.add('hidden')
+    saved.classList.remove('hidden')
+    newInput.classList.add('hidden')
+    newInputForm.classList.add('hidden')
+
 
     let userName = document.querySelector('.userName')
     let usersName = localStorage.getItem('userName')
@@ -15,81 +62,70 @@ const showAccount = () => {
     }
 }
 
-const showLoginScreen = () => {
-    userAccount.classList.add('hidden')
-    signUpScreen.classList.add('hidden')
-    loginForm.classList.remove('hidden')
-}
-let signUpButton= document.querySelector('.signUpButton')
-const switchToSignUp = () => {
-    dashboard.classList.add('hidden')
-    signUpScreen.classList.remove('hidden')
-    loginScreen.classList.add('hidden')
-}
-signUpButton.addEventListener('click', () => {
-    switchToSignUp()
-})
-
-
-signUpForm.addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    const name = document.querySelector('#signup-name').value
-
-    const email = document.querySelector('#signup-email').value
-
-    const password = document.querySelector('#signup-password').value
-
-
     try {
         const response = await axios.post('http://localhost:3001/user', {
             name: name,
             email: email,
-            password: password
+            password: password,
         })
         console.log(response)
+
         const userId = response.data.user.id
         console.log(userId)
+
         const userName = response.data.user.name
+        console.log(userName)
+
         localStorage.setItem('userId', userId)
         localStorage.setItem('userName', userName)
+        localStorage.setItem('userMood', userMood)
+        localStorage.setItem('userTag', userTag)
         getAllLocations()
-        switchToDash()
+        switchToLogin()
 
     } catch (error) {
         console.log(error)
     }
 })
 
-const loginForm = document.querySelector('.login-form')
-loginForm.addEventListener('submit',async (e) => {
+const loginForm = document.querySelector('.userLogin')
+loginForm.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const email = document.querySelector('#login-email').value
+    const email = document.querySelector('#userLoginEmail').value
 
-    const password = document.querySelector('#login-password').value
+    const password = document.querySelector('#userLoginPassword').value
     try {
         const response = await axios.post('http://localhost:3001/user/login', {
             email: email,
             password: password
     })
+
     console.log(response)
+
     const userId = response.data.id
     const userName = response.data.name
+    const userMood = response.data.mood
+    const userTag = response.data.tag
     localStorage.setItem('userName', userName)
     localStorage.setItem('userId', userId)
+    localStorage.setItem('userMood', userMood)
+    localStorage.setItem('userTag', userTag)
     getAllLocations()
-    switchToDash()
+    switchToLogin()
+
     } catch (error) {
         console.log(error)
         alert(error)
     }
 })
 
+// LOG IN OR LOG OUT
 
 const loginButton = document.querySelector('.loginButton')
 loginButton.addEventListener('click', () => {
     switchToLogin()
 })
+
 const logoutButton = document.querySelector('.signOutButton')
 logoutButton.addEventListener('click', () => {
     logout()
@@ -99,14 +135,17 @@ const logout = () => {
     authCheck()
 }
 
+// Retrieve Music
 
-// SEARCH LOCATIONS FUNCTIONALITY
-let searchForm = document.querySelector('.weather-form')
-searchForm.addEventListener('submit', async(e) => {
+let illuminate = document.querySelector('.success')
+illuminate.addEventListener('submit', async(e) => {
     e.preventDefault()
     try {
-        const searchBar = document.querySelector('#weather-search').value
-        console.log(searchBar)
+        const mood = document.querySelector('#successMood').value
+        console.log(mood)
+
+        const tag = document.querySelector('#successTag').value
+        console.log(tag)
 
         const res = await axios.post(`http://localhost:3001/location/search/${searchBar}`)
         console.log(res.data)
