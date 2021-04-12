@@ -15,14 +15,15 @@ app.get('/', (req, res) => {
 app.get('/main.js', async (req, res) => {
   const filepath = path.join(__dirname, 'main.js')
 
-if (process.env.NODE_ENV ==='production') {
+if (process.env.NODE_ENV === 'production') {
   await replaceInFile({
       files: filepath,
       from: 'http://localhost:3001',
       to: 'https://lyrically-backend.herokuapp.com/'
   })
-  res.sendFile(filepath)
 }
+  res.sendFile(filepath)
+})
 
 app.get('/style.css', (req, res) => {
   const filepath = path.join(__dirname, 'style.css')
