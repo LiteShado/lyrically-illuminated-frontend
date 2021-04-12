@@ -29,7 +29,10 @@ app.get('/style.css', (req, res) => {
 })
 
 
-// const port = process.env.PORT || 3000
-// app.listen(port, () => {
-//     routesReport.print()
-// }
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    routesReport.print()
+    console.log(`listening on port ${PORT}`)
+})
+})
