@@ -37,4 +37,3 @@ app.listen(PORT, () => {
     routesReport.print()
     console.log(`listening on port ${PORT}`)
 })
-})
