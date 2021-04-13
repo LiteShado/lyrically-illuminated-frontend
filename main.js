@@ -13,21 +13,74 @@
 //     newInputForm.classList.add('hidden')
 
 // }
-if (localStorage.getItem('userId')) {
+const showSection = (sectionId) => {
+    document.querySelectorAll('section').forEach(s => s.classList.add('hidden'))
+    document.querySelector(sectionId).classList.remove('hidden')
+}
+
+document.querySelector('home-link').addEventListener('click', () => {
+    showSection('#home-content')
+})
+document.querySelector('signup-link').addEventListener('click', () => {
+    showSection('#signup')
+})
+document.querySelector('login-link').addEventListener('click', () => {
+    showSection('#loggingin')
+})
+document.querySelector('logout-link').addEventListener('click', () => {
+    showSection('#logout')
+})
+document.querySelector('profile-link').addEventListener('click', () => {
+    showSection('#editaccount')
+})
+
+
+const showLoggedIn = () => {
     document.querySelector('#signup-link').classList.add('hidden')
     document.querySelector('#login-link').classList.add('hidden')
+    document.querySelector('#signup-link').classList.add('hidden')
+    document.querySelector('#loggingin').classList.add('hidden')
+    document.querySelector('#loginForm').classList.add('hidden')
+    document.querySelector('#signuptitle').classList.add('hidden')
+    document.querySelector('#signup-form').classList.add('hidden')
+}
+const showLoggedOut = () => {
+    document.querySelector('#profile-link').classList.add('hidden')
+    document.querySelector('#logout-link').classList.add('hidden')
+    document.querySelector('#home-link').classList.add('hidden')
+    document.querySelector('#welcomeback').classList.add('hidden')
+    document.querySelector('#editaccount').classList.add('hidden')
+    document.querySelector('#success').classList.add('hidden')
+    document.querySelector('#userLoggedIn').classList.add('hidden')
+    document.querySelector('#userSong').classList.add('hidden')
+    document.querySelector('#success').classList.add('hidden')
+    document.querySelector('#delete').classList.add('hidden')
+    document.querySelector('#home-content').classList.add('hidden')
+    document.querySelector('#saved').classList.add('hidden')
+    document.querySelector('#welcomeback').classList.add('hidden')
+}
+
+if (localStorage.getItem('userId')) {
+    document.querySelector('#loggedout').classList.add('hidden')
+    document.querySelector('loggingin').classList.add('hidden')
     document.querySelector('#loginForm').classList.add('hidden')
     document.querySelector('.signUpTitle').classList.add('hidden')
     document.querySelector('.logInTitle').classList.add('hidden')
 
 
 } else {
-    document.querySelector('#logout-link').classList.add('hidden')
-    document.querySelector('#profile-link').classList.add('hidden')
+    document.querySelector('#loggedout').classList.remove('active')
+    document.querySelector('#loggedout').classList.add('hidden')
+    document.querySelector('#loggingin').classList.remove('hidden')
+    document.querySelector('#loggingin').classList.add('active')
     document.querySelector('#loginForm').classList.remove('hidden')
+    document.querySelector('#signup-form').classList.remove('active')
+    document.querySelector('#welcomeUser').classList.remove('active')
+    document.querySelector('#saved').classList.remove('active')
+    document.querySelector('#newInputForm').classList.remove('active')
 }
 
-
+////LOGIN CODE
 document.querySelector('#loginForm').addEventListener('submit', async (event) => {
     event.preventDefault()
 
@@ -45,36 +98,47 @@ document.querySelector('#loginForm').addEventListener('submit', async (event) =>
     console.log(response)
     const userId = response.data.user.id
     localStorage.setItem('userId', userId)
-
-    document.querySelector('#signup-link').classList.add('hidden')
-    document.querySelector('.signUpTitle').classList.add('hidden')
-    document.querySelector('.logInTitle').classList.add('hidden')
-    document.querySelector('#login-link').classList.add('hidden')
-    document.querySelector('#loginForm').classList.add('hidden')
-    document.querySelector('#logout-link').classList.remove('hidden')
-
+    showLoggedIn()
 }   catch (error) {
     console.log(error)
 }
 })
 
-
-// let signUpButton= document.querySelector('.signUpButton')
-
-// const switchToSignUp = () => {
-//     userAccount.classList.add('hidden')
-//     signUpScreen.classList.remove('hidden')
-//     loginScreen.classList.add('hidden')
-//     success.classList.add('hidden')
-//     saved.classList.add('hidden')
-//     newInput.classList.add('hidden')
-//     newInputForm.classList.add('hidden')
-
-// }
-// signUpButton.addEventListener('click', () => {
-//     switchToSignUp()
-// })
+////SIGNUP CODE
 document.querySelector('#signup-form').addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    const name = document.querySelector('#signupName').value
+    const email = document.querySelector('#signupEmail').value
+    const password = document.querySelector('#signupPassword').value
+    const mood = document.querySelector('#mood').value
+    const tag = document.querySelector('#tag').value
+
+    console.log(name)
+    console.log(email)
+    console.log(password)
+    console.log(mood)
+    console.log(tag)
+
+    try  {
+    const response = await axios.post('http://localhost:3001/user', {
+        email: email,
+        password: password,
+        name: name,
+        mood: mood,
+        tag: tag
+    })
+    console.log(response)
+    const userId = response.data.user.id
+    localStorage.setItem('userId', userId)
+    showLoggedIn()
+} catch (error) {
+    console.log(error)
+    alert('email is already taken')
+}
+})
+
+document.querySelector('#looksgood').addEventListener('submit', async (event) => {
     event.preventDefault()
 
     const name = document.querySelector('#signupName').value
