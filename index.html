@@ -23,7 +23,7 @@
 
                     <label for="userPassword">Password</label>
                     <input type="password" id="userPassword">
-
+                    <br>
                     <br>
                     <button class="loginButton">Log In!</button>
                 </form>
@@ -32,15 +32,15 @@
                 <!-- SIGN UP OPTION -->
 
                 <h1 class="signUpTitle">Sign Up</h1>
-                <form class="signup-form hidden">
-                    <label for="userName">Name</label>
-               <input type="text" id="userName">
+                <form id="signup-form" class="hidden">
+                <label for="userName">Name</label>
+               <input type="text" id="signupName">
 
                <label for="userEmail">Email</label>
-               <input type="text" id="userEmail">
+               <input type="text" id="signupEmail">
 
                <label for="userPassword">Password</label>
-               <input type="password" id="userPassword">
+               <input type="password" id="signupPassword">
 
                <br>
                <br>
@@ -59,15 +59,15 @@
                     <option value="Love">Love</option>
                 </select>
                 <!-- <input type="submit" value="signup"> -->
+                <button class="submit">Sign Up!</button>
             </form>
             <br>
-            <button class="submit">Sign Up!</button>
 
         </div>
         <div class="userAccount hidden">
-            <h1 class="userLogin">Welcome back! </h1>
-            <p class="userName"></p>
-            <form class="userLogin">
+            <h1 class="userLogin">Welcome back!<p id="welcomeUser"></p> </h1>
+
+            <!-- <form class="userLogin">
                 <label for="userLoginEmail">Email</label>
                 <input type="text" id="userLoginEmail">
 
@@ -75,9 +75,8 @@
                 <input type="password" id="userLoginPassword">
 
                 <input type="submit" value="Log In">
-            </form>
-            <br>
-            <button class="signUpButton">I need to Sign Up</button>
+            </form> -->
+            <!-- <button class="signUpButton">I need to Sign Up</button> -->
         </div>
 
 

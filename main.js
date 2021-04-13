@@ -23,7 +23,7 @@ document.querySelector('#loginForm').addEventListener('submit', (event) => {
     console.log(email)
     console.log(password)
 
-    axios.post('http://localhost:3001/user', {
+    axios.get('http://localhost:3001/user/login', {
         email: email,
         password: password
     })
@@ -45,18 +45,30 @@ document.querySelector('#loginForm').addEventListener('submit', (event) => {
 // signUpButton.addEventListener('click', () => {
 //     switchToSignUp()
 // })
+document.querySelector('#signup-form').addEventListener('submit', (event) => {
+    event.preventDefault()
 
-// // const userSignUp = document.querySelector('.userSignUp')
-// const userSignUp = document.querySelector('.signup-form')
+    const name = document.querySelector('#signupName').value
+    const email = document.querySelector('#signupEmail').value
+    const password = document.querySelector('#signupPassword').value
+    const mood = document.querySelector('#mood').value
+    const tag = document.querySelector('#tag').value
 
-// userSignUp.addEventListener('submit', async (e) => {
-//     e.preventDefault()
+    console.log(name)
+    console.log(email)
+    console.log(password)
+    console.log(mood)
+    console.log(tag)
 
-//     const name = document.querySelector('#userName').value
+    axios.post('http://localhost:3001/user', {
+        email: email,
+        password: password,
+        name: name,
+        mood: mood,
+        tag: tag
+    })
+})
 
-//     const email = document.querySelector('#userEmail').value
-
-//     const password = document.querySelector('#userPassword').value
 
 // // SHOW ACCOUNT
 // const showAccount = () => {
