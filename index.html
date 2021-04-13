@@ -18,7 +18,8 @@
             <div>
                 <h1 class="lyrical">Lyrically iLLuminated</h1>
 
-
+                <section id="logout">
+                    <h1>You have been logged out!</h1>
                 <!-- LOG IN OPTION -->
 
                 <section id="loggingin">
@@ -33,12 +34,13 @@
                     <br>
                     <button class="loginButton">Log In!</button>
                 </form>
+                </section>
+            </section>
 
-
-
+            <section id="logoutt">
                 <!-- SIGN UP OPTION -->
 
-                <section id="signup" class="signUpTitle">
+                <div id="signup" class="signUpTitle">
                     <h1>Sign Up!</h1>
                 <form id="signup-form">
                 <label for="userName">Name</label>
@@ -71,7 +73,8 @@
             </form>
             <br>
 
-            </section>
+        </div>
+        </section>
         </div>
         </div>
 
@@ -82,21 +85,14 @@
         <!-- //////////////////////////////////// -->
         <!-- AFTER LOG IN -->
         <!-- /////////////////////////////////// -->
-
-        <section id="saved">
-            <div id="userMood">
-                <div id="viewUserMood">
+        <!-- <section id="saved"> -->
                     <p>Your saved mood:</p>
                     <ul>
                         <li class="moodList1"></li>
                     </ul>
 
-                </div>
-            </div>
-
             <form id="looksgood">
-                <div id="userTag">
-                <div id="viewUserTag">
+                <div>
                     <p>Your saved tag:</p>
                     <ul>
                         <li class="tagList1"></li>
@@ -104,15 +100,14 @@
                     <button class="editMoodButton">Edit Mood</button>
                     <button class="editTagButton">Edit Tag</button>
                     <button class="submit">Looks Good!</button>
-                </form>
                 </div>
-            </div>
+            </form>
         </section>
 
         <section id="editaccount">
 
             <h1 id="newInputForm">Edit Account Info</h1>
-            <form id="signup-form">
+            <form id="edit-form">
                 <label for="userName">Name</label>
                 <input type="text" id="userName">
 
@@ -145,7 +140,7 @@
         <!-- ACCOUNT INFO -->
         <!-- /////////////////////////////////// -->
         <section id="home-content">
-        <form id="success">
+        <!-- <form id="success">
             <label for="userName"></label>
             <input type="text" id="successName">
 
@@ -158,25 +153,22 @@
             <label for="userTag"></label>
             <input type="text" id="successTag">
 
-            <input type="submit" value="iLLuminate Me!">
+            <input type="submit" value="iLLuminate Me!"> -->
 
             <br>
-
-
 
             <!-- //////////////////////////////////// -->
             <!-- MUSIC PRESENTATION -->
             <!-- /////////////////////////////////// -->
 
-            <div id="userLoggedIn">
-                <div class="loggedin">
+            <section id="home-content">
+                <div>
                     <h1 class="userName">Are you ready to be iLLuminated?</h1>
                     <button class="nextPage">Next</button>
                 </div>
                 <br>
-            </div>
-            <br>
-            <div id="userSong">
+                <br>
+            <section id="userSong">
                 <div class="viewUserSong">
                     <h2>You've been iLLuminated!</h2>
                     <ul>
@@ -192,15 +184,11 @@
                 </div>
             </div>
         </section>
-        <section id="logout">
-            <button id="signOutButton">Sign Out</button>
-
-
             <!-- //////////////////////////////////// -->
             <!-- DELETE ACCOUNT -->
             <!-- /////////////////////////////////// -->
 
-            <div id="delete">
+        <section id="delete">
                 <h1 class="deleteTitle hidden">Delete Account</h1>
                 <button class="deleteButton">Delete</button>
             </div>
