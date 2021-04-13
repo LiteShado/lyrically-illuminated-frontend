@@ -8,8 +8,14 @@
         <title>Document</title>
     </head>
     <body>
+        <nav>
+            <span id="home-link" class="nav-link">Home</span>
+            <span id="signup-link" class="nav-link">Sign Up</span>
+            <span id="login-link" class="nav-link">Log In</span>
+            <span id="logout-link" class="nav-link">Log Out</span>
+            <span id="profile-link" class="nav-link">Profile</span>
         <div>
-            <div class="userSignUp hidden">
+            <div id="userSignUp" class=hidden">
                 <h1 class="lyrical">Lyrically iLLuminated</h1>
 
 
@@ -17,7 +23,7 @@
 
 
                 <h1 class="logInTitle">Log In</h1>
-                <form id="loginForm" class="hidden">
+                <form id="loginForm">
                     <label for="userEmail">Email</label>
                     <input type="text" id="userEmail">
 
@@ -64,7 +70,7 @@
             <br>
 
         </div>
-        <div class="userAccount hidden">
+        <div id="userAccount" class="hidden">
             <h1 class="userLogin">Welcome back!<p id="welcomeUser"></p> </h1>
 
             <!-- <form class="userLogin">
@@ -85,9 +91,9 @@
         <!-- AFTER LOG IN -->
         <!-- /////////////////////////////////// -->
 
-        <div class="saved hidden">
-            <div class="userMood hidden">
-                <div class="viewUserMood">
+        <div id="saved" class="hidden">
+            <div id="userMood">
+                <div id="viewUserMood">
                     <p>Your saved mood:</p>
                     <ul>
                         <li class="moodList1"></li>
@@ -96,8 +102,8 @@
                 </div>
             </div>
 
-            <div class="userTag hidden">
-                <div class="viewUserTag">
+            <div id="userTag">
+                <div id="viewUserTag">
                     <p>Your saved tag:</p>
                     <ul>
                         <li class="tagList1"></li>
@@ -113,7 +119,7 @@
 
         <div class="newInput">
 
-            <h1 class="newInputForm hidden">Edit Account Info</h1>
+            <h1 id="newInputForm" class="hidden">Edit Account Info</h1>
             <form class="signup-form hidden">
                 <label for="userName">Name</label>
                 <input type="text" id="userName">
@@ -147,7 +153,7 @@
         <!-- ACCOUNT INFO -->
         <!-- /////////////////////////////////// -->
 
-        <form class="success hidden">
+        <form id="success"class="hidden">
             <label for="userName"></label>
             <input type="text" id="successName">
 

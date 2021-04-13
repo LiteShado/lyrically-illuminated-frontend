@@ -13,6 +13,20 @@
 //     newInputForm.classList.add('hidden')
 
 // }
+if (localStorage.getItem('userId')) {
+    document.querySelector('#signup-link').classList.add('hidden')
+    document.querySelector('#login-link').classList.add('hidden')
+    document.querySelector('#loginForm').classList.add('hidden')
+    document.querySelector('.signUpTitle').classList.add('hidden')
+    document.querySelector('.logInTitle').classList.add('hidden')
+
+
+} else {
+    document.querySelector('#logout-link').classList.add('hidden')
+    document.querySelector('#profile-link').classList.add('hidden')
+    document.querySelector('#loginForm').classList.remove('hidden')
+}
+
 
 document.querySelector('#loginForm').addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -31,6 +45,13 @@ document.querySelector('#loginForm').addEventListener('submit', async (event) =>
     console.log(response)
     const userId = response.data.user.id
     localStorage.setItem('userId', userId)
+
+    document.querySelector('#signup-link').classList.add('hidden')
+    document.querySelector('.signUpTitle').classList.add('hidden')
+    document.querySelector('.logInTitle').classList.add('hidden')
+    document.querySelector('#login-link').classList.add('hidden')
+    document.querySelector('#loginForm').classList.add('hidden')
+    document.querySelector('#logout-link').classList.remove('hidden')
 
 }   catch (error) {
     console.log(error)
