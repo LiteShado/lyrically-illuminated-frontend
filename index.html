@@ -5,37 +5,35 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css"href="./style.css">
-        <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js "></script>
-        <script async defer src="./main.js"></script>
         <title>Document</title>
-</head>
-<body>
-    <div>
-        <div class="userSignUp hidden">
-            <h1 class="lyrical">Lyrically iLLuminated</h1>
+    </head>
+    <body>
+        <div>
+            <div class="userSignUp hidden">
+                <h1 class="lyrical">Lyrically iLLuminated</h1>
 
 
-<!-- LOG IN OPTION -->
+                <!-- LOG IN OPTION -->
 
 
-<h1 class="logInTitle">Log In</h1>
-<form class="loginForm hidden">
-    <label for="userEmail">Email</label>
-    <input type="text" id="userEmail">
+                <h1 class="logInTitle">Log In</h1>
+                <form id="loginForm" class="hidden">
+                    <label for="userEmail">Email</label>
+                    <input type="text" id="userEmail">
 
-    <label for="userPassword">Password</label>
-    <input type="password" id="userPassword">
+                    <label for="userPassword">Password</label>
+                    <input type="password" id="userPassword">
 
-    <br>
-</form>
-<button class="loginButton">Log In!</button>
+                    <br>
+                    <button class="loginButton">Log In!</button>
+                </form>
 
 
-<!-- SIGN UP OPTION -->
+                <!-- SIGN UP OPTION -->
 
-            <h1 class="signUpTitle">Sign Up</h1>
-           <form class="signup-form hidden">
-               <label for="userName">Name</label>
+                <h1 class="signUpTitle">Sign Up</h1>
+                <form class="signup-form hidden">
+                    <label for="userName">Name</label>
                <input type="text" id="userName">
 
                <label for="userEmail">Email</label>
@@ -48,24 +46,24 @@
                <br>
 
                <label for="userMood">What is your Mood?</label>
-                <select name="mood" id="mood">
-                    <option value="Happy">Happy</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Determined">Determined</option>
+               <select name="mood" id="mood">
+                   <option value="Happy">Happy</option>
+                   <option value="Sad">Sad</option>
+                   <option value="Determined">Determined</option>
                 </select>
 
-               <label for="userTag">What is your Focus?</label>
+                <label for="userTag">What is your Focus?</label>
                 <select name="tag" id="tag">
                     <option value="Success">Success</option>
                     <option value="Party">Party</option>
                     <option value="Love">Love</option>
                 </select>
-               <!-- <input type="submit" value="signup"> -->
-           </form>
-           <br>
-           <button class="submit">Sign Up!</button>
+                <!-- <input type="submit" value="signup"> -->
+            </form>
+            <br>
+            <button class="submit">Sign Up!</button>
 
-       </div>
+        </div>
         <div class="userAccount hidden">
             <h1 class="userLogin">Welcome back! </h1>
             <p class="userName"></p>
@@ -77,141 +75,143 @@
                 <input type="password" id="userLoginPassword">
 
                 <input type="submit" value="Log In">
-              </form>
-              <br>
-              <button class="signUpButton">I need to Sign Up</button>
-        </div>
-
-
-
-    <!-- //////////////////////////////////// -->
-    <!-- AFTER LOG IN -->
-    <!-- /////////////////////////////////// -->
-
-    <div class="saved hidden">
-        <div class="userMood hidden">
-            <div class="viewUserMood">
-                <p>Your saved mood:</p>
-                <ul>
-                    <li class="moodList1"></li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="userTag hidden">
-            <div class="viewUserTag">
-                <p>Your saved tag:</p>
-                <ul>
-                    <li class="tagList1"></li>
-                </ul>
-                <button class="editMoodButton">Edit Mood</button>
-                <button class="editTagButton">Edit Tag</button>
-                <button class="success">Looks Good!</button>
-
-            </div>
-        </div>
-
-    </div>
-
-    <div class="newInput">
-
-    <h1 class="newInputForm hidden">Edit Account Info</h1>
-    <form class="signup-form hidden">
-        <label for="userName">Name</label>
-        <input type="text" id="userName">
-
-        <label for="userEmail">Email</label>
-        <input type="text" id="userEmail">
-
-        <label for="userPassword">Password</label>
-        <input type="password" id="userPassword">
-
-        <br>
-        <br>
-
-        <label for="userMood hidden">What is your Mood?</label>
-         <select name="mood" id="mood">
-             <option value="Happy">Happy</option>
-             <option value="Sad">Sad</option>
-             <option value="Determined">Determined</option>
-         </select>
-
-        <label for="userTag hidden">What is your Focus?</label>
-         <select name="tag" id="tag">
-             <option value="Success">Success</option>
-             <option value="Party">Party</option>
-             <option value="Love">Love</option>
-         </select>
-        <input type="submit" value="Submit Changes">
-    </form>
-    </div>
-    <!-- //////////////////////////////////// -->
-    <!-- ACCOUNT INFO -->
-    <!-- /////////////////////////////////// -->
-
-    <form class="success hidden">
-        <label for="userName"></label>
-        <input type="text" id="successName">
-
-        <label for="userEmail"></label>
-        <input type="text" id="successEmail">
-
-        <label for="userMood"></label>
-        <input type="text" id="successMood">
-
-        <label for="userTag"></label>
-        <input type="text" id="successTag">
-
-        <input type="submit" value="iLLuminate Me!">
-
-        <br>
-ÏZ
-
-
-    <!-- //////////////////////////////////// -->
-    <!-- MUSIC PRESENTATION -->
-    <!-- /////////////////////////////////// -->
-
-    <div class="userLoggedIn hidden">
-        <div class="loggedin">
-            <h1 class="userName">Are you ready to be iLLuminated?</h1>
-            <button class="nextPage">Next</button>
-        </div>
-    <br>
-    </div>
-    <br>
-    <div class="userSong hidden">
-        <div class="viewUserSong">
-            <h2>You've been iLLuminated!</h2>
-            <ul>
-                <li class="musicTitle"></li>
-                <li class="musicArtist"></li>
-                <li class="musicSong"></li>
-            </ul>
+            </form>
             <br>
-            <h2 class="musicLyric">The iLLumination:</h2>
-            <br>
-            <button class="nextSong">Next Song</button>
+            <button class="signUpButton">I need to Sign Up</button>
+        </div>
+
+
+
+        <!-- //////////////////////////////////// -->
+        <!-- AFTER LOG IN -->
+        <!-- /////////////////////////////////// -->
+
+        <div class="saved hidden">
+            <div class="userMood hidden">
+                <div class="viewUserMood">
+                    <p>Your saved mood:</p>
+                    <ul>
+                        <li class="moodList1"></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="userTag hidden">
+                <div class="viewUserTag">
+                    <p>Your saved tag:</p>
+                    <ul>
+                        <li class="tagList1"></li>
+                    </ul>
+                    <button class="editMoodButton">Edit Mood</button>
+                    <button class="editTagButton">Edit Tag</button>
+                    <button class="success">Looks Good!</button>
+
+                </div>
+            </div>
 
         </div>
-    </div>
-    <button class="signOutButton hidden">Sign Out</button>
+
+        <div class="newInput">
+
+            <h1 class="newInputForm hidden">Edit Account Info</h1>
+            <form class="signup-form hidden">
+                <label for="userName">Name</label>
+                <input type="text" id="userName">
+
+                <label for="userEmail">Email</label>
+                <input type="text" id="userEmail">
+
+                <label for="userPassword">Password</label>
+                <input type="password" id="userPassword">
+
+                <br>
+                <br>
+
+                <label for="userMood hidden">What is your Mood?</label>
+                <select name="mood" id="mood">
+                    <option value="Happy">Happy</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Determined">Determined</option>
+                </select>
+
+                <label for="userTag hidden">What is your Focus?</label>
+                <select name="tag" id="tag">
+                    <option value="Success">Success</option>
+                    <option value="Party">Party</option>
+                    <option value="Love">Love</option>
+                </select>
+                <input type="submit" value="Submit Changes">
+            </form>
+        </div>
+        <!-- //////////////////////////////////// -->
+        <!-- ACCOUNT INFO -->
+        <!-- /////////////////////////////////// -->
+
+        <form class="success hidden">
+            <label for="userName"></label>
+            <input type="text" id="successName">
+
+            <label for="userEmail"></label>
+            <input type="text" id="successEmail">
+
+            <label for="userMood"></label>
+            <input type="text" id="successMood">
+
+            <label for="userTag"></label>
+            <input type="text" id="successTag">
+
+            <input type="submit" value="iLLuminate Me!">
+
+            <br>
+            ÏZ
 
 
-    <!-- //////////////////////////////////// -->
-    <!-- DELETE ACCOUNT -->
-    <!-- /////////////////////////////////// -->
+            <!-- //////////////////////////////////// -->
+            <!-- MUSIC PRESENTATION -->
+            <!-- /////////////////////////////////// -->
 
-    <div class="delete hidden">
-        <h1 class="deleteTitle hidden">Delete Account</h1>
-        <button class="deleteButton">Delete</button>
-    </div>
+            <div class="userLoggedIn hidden">
+                <div class="loggedin">
+                    <h1 class="userName">Are you ready to be iLLuminated?</h1>
+                    <button class="nextPage">Next</button>
+                </div>
+                <br>
+            </div>
+            <br>
+            <div class="userSong hidden">
+                <div class="viewUserSong">
+                    <h2>You've been iLLuminated!</h2>
+                    <ul>
+                        <li class="musicTitle"></li>
+                        <li class="musicArtist"></li>
+                        <li class="musicSong"></li>
+                    </ul>
+                    <br>
+                    <h2 class="musicLyric">The iLLumination:</h2>
+                    <br>
+                    <button class="nextSong">Next Song</button>
+
+                </div>
+            </div>
+            <button class="signOutButton hidden">Sign Out</button>
 
 
-</div>
+            <!-- //////////////////////////////////// -->
+            <!-- DELETE ACCOUNT -->
+            <!-- /////////////////////////////////// -->
+
+            <div class="delete hidden">
+                <h1 class="deleteTitle hidden">Delete Account</h1>
+                <button class="deleteButton">Delete</button>
+            </div>
+
+
+        </div>
 
 
 
-</body>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js "></script>
+        <script type="text/javascript" src="./main.js" defer></script>
+    </body>
 </html>
