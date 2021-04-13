@@ -11,8 +11,12 @@ const showLoginScreen = () => {
     newInputForm.classList.add('hidden')
 
 }
+
+let loginButton = document.querySelector('.loginButton')
+
 loginButton.addEventListener('click', () => {
     switchToLogin()
+    console.log('login')
 })
 
 
