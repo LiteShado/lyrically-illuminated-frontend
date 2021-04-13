@@ -14,7 +14,7 @@
 
 // }
 
-document.querySelector('#loginForm').addEventListener('submit', (event) => {
+document.querySelector('#loginForm').addEventListener('submit', async (event) => {
     event.preventDefault()
 
     const email = document.querySelector('#userEmail').value
@@ -23,10 +23,18 @@ document.querySelector('#loginForm').addEventListener('submit', (event) => {
     console.log(email)
     console.log(password)
 
-    axios.get('http://localhost:3001/user/login', {
+    try  {
+        const response = await axios.post('http://localhost:3001/user/login', {
         email: email,
         password: password
     })
+    console.log(response)
+    const userId = response.data.user.id
+    localStorage.setItem('userId', userId)
+
+}   catch (error) {
+    console.log(error)
+}
 })
 
 
@@ -45,7 +53,7 @@ document.querySelector('#loginForm').addEventListener('submit', (event) => {
 // signUpButton.addEventListener('click', () => {
 //     switchToSignUp()
 // })
-document.querySelector('#signup-form').addEventListener('submit', (event) => {
+document.querySelector('#signup-form').addEventListener('submit', async (event) => {
     event.preventDefault()
 
     const name = document.querySelector('#signupName').value
@@ -60,13 +68,22 @@ document.querySelector('#signup-form').addEventListener('submit', (event) => {
     console.log(mood)
     console.log(tag)
 
-    axios.post('http://localhost:3001/user', {
+    try  {
+    const response = await axios.post('http://localhost:3001/user', {
         email: email,
         password: password,
         name: name,
         mood: mood,
         tag: tag
     })
+    console.log(response)
+    const userId = response.data.user.id
+    localStorage.setItem('userId', userId)
+
+} catch (error) {
+    console.log(error)
+    alert('email is already taken')
+}
 })
 
 
