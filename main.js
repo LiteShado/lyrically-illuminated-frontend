@@ -121,7 +121,7 @@ document.querySelector('#loginForm').addEventListener('submit', async (event) =>
     const tagSave = document.querySelector('.tagList1')
     const welcome = document.querySelector('#welcomeUser')
     try  {
-        const response = await axios.post('https://lyrically-illuminated.herokuapp.com/user/login', {
+        const response = await axios.post('https://lyrically-backend.herokuapp.com/user/login', {
             email: email,
             password: password
         })
@@ -161,7 +161,7 @@ document.querySelector('#signup-form').addEventListener('submit', async (event) 
     const welcome = document.querySelector('#welcomeUser')
 
     try  {
-        const response = await axios.post('http://localhost:3001/user', {
+        const response = await axios.post('https://lyrically-backend.herokuapp.com/user', {
             email: email,
             password: password,
             name: name,
@@ -200,7 +200,7 @@ document.querySelector('#edit-form').addEventListener('submit', async (event) =>
     const tag = document.querySelector('#tag').value
 
     try  {
-    const response = await axios.put('http://localhost:3001/user/edit', {
+    const response = await axios.put('https://lyrically-backend.herokuapp.com/user/edit', {
         email: email,
         password: password,
         name: name,
@@ -220,7 +220,7 @@ document.querySelector('#edit-form').addEventListener('submit', async (event) =>
 document.querySelector('#logout-link').addEventListener('click', async (event) => {
     event.preventDefault()
     try  {
-        const response = await axios.post('http://localhost:3001/user/logout', {
+        const response = await axios.post('https://lyrically-backend.herokuapp.com/user/logout', {
         })
             localStorage.clear()
             localStorage.removeItem('userId')
@@ -249,7 +249,7 @@ document.querySelector('#profile-link').addEventListener('click', async (event) 
     event.preventDefault()
     // userId = localStorage.getItem("userId");
     try  {
-        const response = await axios.get('http://localhost:3001/user/profile', {
+        const response = await axios.get('https://lyrically-backend.herokuapp.com/user/profile', {
             where: {
                 id: localStorage.getItem("userId")
             }
@@ -284,7 +284,7 @@ deleted.addEventListener('submit', async (e) => {
     try {
         const userId = localStorage.getItem('userId')
         // const deleteUser = (userId, () => {
-        let res = await axios.delete(`http://localhost:3001/user/${userId}/delete`)
+        let res = await axios.delete(`https://lyrically-backend.herokuapp.com/user/${userId}/delete`)
         console.log(res)
         localStorage.removeItem('userId', userId)
         localStorage.clear()
