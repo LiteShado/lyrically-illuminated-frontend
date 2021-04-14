@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
   await replaceInFile({
       files: filepath,
       from: 'http://localhost:3001',
-      to: 'https://lyrically-backend.herokuapp.com/'
+      to: 'https://lyrically-backend.herokuapp.com'
   })
 }
   res.sendFile(filepath)
