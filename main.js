@@ -102,13 +102,15 @@ document.querySelector('#profile-link').addEventListener('click', () => {
     document.querySelector('#welcomeback').classList.add('hidden')
     // showSection('#editaccount')
 })
-
+const welcome = document.querySelector('#welcomeUser')
+const user = localStorage.getItem('name')
+welcome.innerText = user
 
 if (localStorage.getItem('userId')) {
     showLoggedIn()
 } else {
     showLoggedOut()
-    localStorage.removeItem('userId')
+    localStorage.clear()
 }
 
 ////LOGIN CODE
@@ -128,7 +130,11 @@ document.querySelector('#loginForm').addEventListener('submit', async (event) =>
     })
     console.log(response)
     const userId = response.data.user.id
+    // const email = response.data.user.email
+    // const password = response.data.user.password
     localStorage.setItem('userId', userId)
+    // localStorage.setItem('email', email)
+    // localStorage.setItem('password', password)
     showLoggedIn()
 }   catch (error) {
     console.log(error)
@@ -139,27 +145,38 @@ document.querySelector('#loginForm').addEventListener('submit', async (event) =>
 ////SIGNUP CODE
 document.querySelector('#signup-form').addEventListener('submit', async (event) => {
     event.preventDefault()
-
-    const name = document.querySelector('#signupName').value
     const email = document.querySelector('#signupEmail').value
+    const name = document.querySelector('#signupName').value
     const password = document.querySelector('#signupPassword').value
-    const mood = document.querySelector('#mood').value
-    const tag = document.querySelector('#tag').value
-
-    console.log(name, email, password, mood, tag)
+    const tag = document.querySelector('#mood').value
+    const mood = document.querySelector('#tag').value
+    const moodSave = document.querySelector('.moodList1')
+    const tagSave = document.querySelector('.tagList1')
 
     try  {
-    const response = await axios.post('http://localhost:3001/user', {
-        email: email,
-        password: password,
-        name: name,
-        mood: mood,
-        tag: tag
-    })
-    console.log(response)
-    const userId = response.data.user.id
-    localStorage.setItem('userId', userId)
-    showLoggedIn()
+        const response = await axios.post('http://localhost:3001/user', {
+            email: email,
+            password: password,
+            name: name,
+            mood: mood,
+            tag: tag
+        })
+        console.log(response)
+        console.log(email, name, password, tag, mood)
+        localStorage.setItem('name', name)
+        localStorage.setItem('email', email)
+        localStorage.setItem('password', password)
+        localStorage.setItem('tag', tag)
+        localStorage.setItem('mood', mood)
+        document.querySelector('#signup-form').classList.add('hidden')
+        document.querySelector('#signup-form').classList.remove('active')
+        document.querySelector('#welcomeback').classList.add('active')
+        document.querySelector('#welcomeback').classList.remove('hidden')
+        moodSave.innerText = response.data.user.mood
+        tagSave.innerText = response.data.user.tag
+        showLoggedIn()
+
+
 } catch (error) {
     console.log(error)
     alert('email is already taken')
@@ -190,8 +207,6 @@ document.querySelector('#looksgood').addEventListener('submit', async (event) =>
         tag: tag
     })
     console.log(response)
-    const userId = response.data.user.id
-    localStorage.setItem('userId', userId)
     alert('Your information has been updated')
 
 } catch (error) {
@@ -201,24 +216,80 @@ document.querySelector('#looksgood').addEventListener('submit', async (event) =>
 
 // LOG OUT CODE
 
-// document.querySelector('#logout').addEventListener('submit', async (event) => {
-//     event.preventDefault()
+document.querySelector('#logout-link').addEventListener('click', async (event) => {
+    event.preventDefault()
+    try  {
+        const response = await axios.post('http://localhost:3001/user/logout', {
+    })
+        localStorage.clear()
+        localStorage.removeItem('userId')
 
-//     try  {
-//         const response = await axios.post('http://localhost:3001/user/logout', {
-//             where: {
-//                 user: userId
-//             }
-//     })
-//     console.log(response)
-//     const userId = response.data.user.id
-//     localStorage.removeItem('userId', userId)
-//     showLoggedOut()
-//     pageRefresh()
-// }   catch (error) {
-//     console.log(error)
-// }
-// })
+    console.log(response)
+    showLoggedOut()
+    // authCheck()
+}   catch (error) {
+    console.log(error)
+}
+})
+
+const authCheck = () => {
+    const userId = localStorage.getItem('userId')
+    if (userId) {
+        let userEmail = document.querySelector('#userEmail')
+        let usersEmail = localStorage.getItem('resemail')
+        userEmail.innerText = usersEmail
+    } else {
+        showLoggedOut()
+    }
+}
+authCheck()
+
+document.querySelector('#profile-link').addEventListener('click', async (event) => {
+    event.preventDefault()
+    try {
+        const user = await models.user.findOne({
+          where: {
+            id: req.headers.authorization
+          }
+        })
+    console.log(user)
+    showLoggedIn()
+    // authCheck()
+}   catch (error) {
+    console.log(error)
+}
+})
+
+document.querySelector('#edit-form').addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    try {
+        const user = await models.user.update({
+          where: {
+            id: req.params.id
+        }
+        })
+    console.log(user)
+    showLoggedIn()
+}   catch (error) {
+    console.log(error)
+}
+})
+
+document.querySelector('#delete').addEventListener('submit', async (event) => {
+    event.preventDefault()
+    try {
+        let user = await models.user.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+    console.log(user)
+    showLoggedOut()
+}   catch (error) {
+    console.log(error)
+}
+})
 
 // // SHOW ACCOUNT
 // const showAccount = () => {
