@@ -26,3 +26,146 @@
   .nav-link:active {
     background-color: red;
   }
+
+
+  body {
+        margin: 0;
+        background: linear-gradient(to right,
+        white, coral);
+        background-position-x: 0;
+        animation: size 3s infinite linear;
+        text-align: center;
+
+
+  }
+
+  @keyframes size {
+      to {
+          background-position-: 100vw;
+      }
+  }
+
+  .funky {
+    width: 300vw;
+    height: 200vh;
+    padding: 5rem;
+
+    background-image: url(https://unsplash.com/photos/z4X3yABcf5g);
+    background-size: cover;
+    background-position: center;
+
+    mask-image: url(https://github.com/LiteShado/lyrically-illuminated-frontend/blob/main/iLLuminated.png);
+    mask-size: contain;
+  }
+
+  #logoutt {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+  .lyrical {
+      -webkit-animation: squashstretch 8.4s ease-in-out 0s infinite;
+	  /* animation: squashstretch 1.4s ease-in-out 0s infinite alternate; */
+  }
+
+  @-webkit-keyframes squashstretch {
+	0% {
+		-webkit-transform: translateY(-5px);
+		        /* transform: translateY(-100px); */
+	}
+
+	10% {
+		width: 5px;
+		height: 20px;
+	}
+
+	50% {
+		width: 5px;
+		height: 4px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		/* -webkit-transform: translateY(170px); */
+		        transform: translateY(5px);
+	}
+}
+
+@keyframes squashstretch {
+	0% {
+		-webkit-transform: translateY(-1px);
+		        transform: translateY(-1px);
+	}
+
+	50% {
+		width: 2px;
+		height: 20px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		/* -webkit-transform: translateY(170px); */
+		        transform: translateY(30px);
+	}
+}
+
+  #loggingin {
+      font-family: monospace;
+      font-size: larger;
+      font-style: oblique;
+      font-stretch: ultra-condensed;
+      background-color: darkslategrey;
+      border: 5px darksalmon ridge;
+      opacity: 0.6;
+      border-radius: 10px;
+      animation: nudge .50s linear infinite;
+
+    }
+
+    @keyframes nudge {
+        0% {
+            transform:rotate(-1deg);
+        }
+    }
+
+  #editaccount {
+      font-family: monospace;
+      font-size: larger;
+      font-style: oblique;
+      font-stretch: ultra-condensed;
+      background-color: darkslateblue;
+      border: 5px darkmagenta ridge;
+      opacity: 0.6;
+      border-radius: 10px;
+
+  }
+
+
+    #welcomeback {
+        text-shadow: .25px .5px .5px red;
+        font-size: larger;
+        font-style: oblique;
+        font-stretch: ultra-condensed;
+        font-variant: small-caps;
+  }
+
+  #userSong {
+      background-color: darkred;
+      opacity: 0.9;
+      border: 5px darkorange ridge;
+      border-radius: 10px;
+      animation: pulse 3s infinite;
+      /* animation: nudge 5s linear; */
+  }
+
+  @keyframes pulse {
+      0% {
+          background-color:darkred;
+      }
+      100% {
+          background-color: yellow;
+      }
+  }
+
+
+
+  .lyrical,
+  .userLogin {
+      font-weight:400;
+      font-stretch: expanded;
+  }
