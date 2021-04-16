@@ -110,3 +110,8 @@
       animation: pulse 3s infinite;
       /* animation: nudge 5s linear; */
   }
+
+button {
+    padding: 17px;
+
+}

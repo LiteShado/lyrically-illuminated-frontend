@@ -81,15 +81,15 @@ const showLoggedIn = () => {
       password: password,
     })
     console.log(response)
-    let userId = response.data.user.id
-    let name = response.data.user.name
-    localStorage.setItem('name', name)
-    localStorage.setItem('userId', userId)
-    let mood = response.data.user.mood
-    let tag = response.data.user.tag
-    localStorage.setItem('mood', mood)
-    localStorage.setItem('tag', tag)
-    alert(`${name}, Let's Get iLLuminated!!`)
+    // let userId = response.data.user.id
+    // let name = response.data.user.name
+    // localStorage.getItem('name', name)
+    localStorage.getItem('userId', userId)
+    // let mood = response.data.user.mood
+    // let tag = response.data.user.tag
+    localStorage.getItem('mood', mood)
+    localStorage.getItem('tag', tag)
+    alert(`Let's Get iLLuminated!!`)
     showLoggedIn()
     document.querySelector('#login-content').classList.add('hidden')
     showProfile()
@@ -148,17 +148,19 @@ const showLoggedIn = () => {
     const tag = document.querySelector('#tagEdit').value
     const mood = document.querySelector('#moodEdit').value
     try {
-        const response = await axios.put(`/user/${backEndUrl}/edit`, {
-            name: name,
-            email: email,
-            password: password,
-            mood: mood,
-            tag: tag
+        let user = await axios.put(`${backEndUrl}/edit`, {
+            // name: name,
+            // email: email,
+            // password: password,
+            // mood: mood,
+            // tag: tag
+            where :{
+                id: req.params.id
+            }
         })
-
-        const userId = response.data.user.id
+        // localStorage.getItem('userId', userId)
         localStorage.setItem('name', name)
-        localStorage.setItem('userId', userId)
+        // localStorage.setItem('userId', userId)
         localStorage.setItem('email', email)
         localStorage.setItem('password', password)
         localStorage.setItem('tag', tag)
