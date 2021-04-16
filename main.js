@@ -154,9 +154,9 @@ const showLoggedIn = () => {
             // password: password,
             // mood: mood,
             // tag: tag
-            where :{
-                id: req.params.id
-            }
+            headers: {
+                authorization: userId
+              }
         })
         // localStorage.getItem('userId', userId)
         localStorage.setItem('name', name)
