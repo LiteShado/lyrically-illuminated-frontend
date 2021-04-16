@@ -149,14 +149,13 @@ const showLoggedIn = () => {
     const mood = document.querySelector('#moodEdit').value
     try {
         let user = await axios.put(`${backEndUrl}/edit`, {
-            // name: name,
-            // email: email,
-            // password: password,
-            // mood: mood,
-            // tag: tag
-            headers: {
-                authorization: userId
-              }
+          where: {
+            name: name,
+            email: email,
+            password: password,
+            mood: mood,
+            tag: tag
+          }
         })
         // localStorage.getItem('userId', userId)
         localStorage.setItem('name', name)
@@ -205,19 +204,16 @@ document.querySelector('#profile-link').addEventListener('click', async (event) 
 })
 
 document.querySelector('#delete').addEventListener('submit', async (event) => {
+  event.preventDefault()
+  let userId = localStorage.getItem('userId')
+
     try {
-        // const response = await axios.delete(`${backEndUrl}/user/${userId}`, {
-            // where: {
-            //     id: req.params.id
-            // }
-        // })
-        // localStorage.getItem('userId', userId)
-        // console.log(response)
-        event.preventDefault()
+        const response = await axios.delete(`${backEndUrl}/user/${userId}`)
+        console.log(response)
         localStorage.clear()
         showLoggedOut()
         // const userId = response.data.user.id
-        location.reload();
+        // location.reload();
 } catch {
 console.log(error)
 }
