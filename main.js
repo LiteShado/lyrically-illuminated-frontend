@@ -84,7 +84,7 @@ const showLoggedIn = () => {
     // let userId = response.data.user.id
     // let name = response.data.user.name
     // localStorage.getItem('name', name)
-    localStorage.getItem('userId', userId)
+    // localStorage.getItem('userId', userId)
     // let mood = response.data.user.mood
     // let tag = response.data.user.tag
     localStorage.getItem('mood', mood)
