@@ -8,8 +8,6 @@ const showLoggedIn = () => {
     document.querySelector('#logout-link').classList.remove('hidden')
     document.querySelector('#home-link').classList.remove('hidden')
     document.querySelector('#edit-link').classList.remove('hidden')
-    let name = localStorage.getItem('name')
-    let userId = localStorage.getItem('userId')
   }
 
   const showLoggedOut = () => {
@@ -72,17 +70,19 @@ const showLoggedIn = () => {
 
 
   document.querySelector('#login').addEventListener('submit', async (event) => {
-    event.preventDefault()
+    e.preventDefault()
+
   const email = document.querySelector('#login-email').value
   const password = document.querySelector('#login-password').value
 
   try {
-      const res = await axios.post(`${backEndUrl}/user/login`, {
+      const response = await axios.post(`${backEndUrl}/user/login`, {
       email: email,
-      password: password
+      password: password,
     })
-    let userId = res.data.user.id
-    let name = res.data.user.name
+    console.log(response)
+    let userId = response.data.user.id
+    let name = response.data.user.name
     localStorage.setItem('name', name)
     localStorage.setItem('userId', userId)
     let mood = response.data.user.mood
@@ -101,28 +101,26 @@ const showLoggedIn = () => {
 
 
   document.querySelector('#signup').addEventListener('submit', async (event) => {
-      event.preventDefault()
+    event.preventDefault()
 
-      const name = document.querySelector('#signUpName').value
-      const email = document.querySelector('#signUpEmail').value
-      const password = document.querySelector('#signUpPassword').value
-      const tag = document.querySelector('#tag').value
+    const email = document.querySelector('#signUpEmail').value
+    const name = document.querySelector('#signUpName').value
+    const password = document.querySelector('#signUpPassword').value
+    const tag = document.querySelector('#tag').value
     const mood = document.querySelector('#mood').value
     const tagSave = document.querySelector('.tagList1')
     const moodSave = document.querySelector('.moodList1')
-    const welcome = document.querySelector('#welcomeUser')
-
 
     try {
-        const res = await axios.post(`${backEndUrl}/user`, {
+        const response = await axios.post(`${backEndUrl}/user`, {
             name: name,
             email: email,
             password: password,
             mood: mood,
             tag: tag
         })
-        let userId = res.data.user.id
-        let name = res.data.user.name
+
+        const userId = response.data.user.id
         localStorage.setItem('name', name)
         localStorage.setItem('userId', userId)
         localStorage.setItem('email', email)
@@ -131,7 +129,42 @@ const showLoggedIn = () => {
         localStorage.setItem('mood', mood)
         moodSave.innerText = response.data.user.mood
         tagSave.innerText = response.data.user.tag
-        // welcome.innerText = localStorage.getItem(name)
+        showLoggedIn()
+        alert('Get iLLuminated!!')
+        showProfile()
+    } catch (error) {
+        alert('try again')
+        console.log(error)
+    }
+    showProfile()
+})
+
+  document.querySelector('#edit-form').addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    const email = document.querySelector('#userEmailEdit').value
+    const name = document.querySelector('#userNameEdit').value
+    const password = document.querySelector('#userPasswordEdit').value
+    const tag = document.querySelector('#tagEdit').value
+    const mood = document.querySelector('#moodEdit').value
+    try {
+        const response = await axios.put(`/user/${backEndUrl}/edit`, {
+            name: name,
+            email: email,
+            password: password,
+            mood: mood,
+            tag: tag
+        })
+
+        const userId = response.data.user.id
+        localStorage.setItem('name', name)
+        localStorage.setItem('userId', userId)
+        localStorage.setItem('email', email)
+        localStorage.setItem('password', password)
+        localStorage.setItem('tag', tag)
+        localStorage.setItem('mood', mood)
+        moodSave.innerText = response.data.user.mood
+        tagSave.innerText = response.data.user.tag
         showLoggedIn()
         alert('Get iLLuminated!!')
         showProfile()
@@ -143,7 +176,7 @@ const showLoggedIn = () => {
 })
 
 document.querySelector('#profile-link').addEventListener('click', async (event) => {
-  event.preventDefault()
+    event.preventDefault()
   // const userId = response.data.user.id
   // localStorage.getItem('userId', userId)
   let response = await axios.get(`${backEndUrl}/${userId}/profile`, {}, {
@@ -171,15 +204,17 @@ document.querySelector('#profile-link').addEventListener('click', async (event) 
 
 document.querySelector('#delete').addEventListener('submit', async (event) => {
     try {
-        const res = await axios.delete(`${backEndUrl}/user/${userId}`, {
-            where: {
-                id: req.params.id
-            }
-        })
+        // const response = await axios.delete(`${backEndUrl}/user/${userId}`, {
+            // where: {
+            //     id: req.params.id
+            // }
+        // })
+        // localStorage.getItem('userId', userId)
+        // console.log(response)
         event.preventDefault()
         localStorage.clear()
         showLoggedOut()
-        let userId = res.data.user.id
+        // const userId = response.data.user.id
         location.reload();
 } catch {
 console.log(error)
