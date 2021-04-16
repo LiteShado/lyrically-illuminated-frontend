@@ -31,6 +31,7 @@ const showLoggedIn = () => {
     localStorage.clear()
   }
 
+
   document.querySelector('#home-link').addEventListener('click', () => {
     document.querySelectorAll('section').forEach(s => s.classList.add('hidden'))
     document.querySelector('#home-content').classList.remove('hidden')
@@ -141,14 +142,19 @@ const showLoggedIn = () => {
 
   document.querySelector('#edit-form').addEventListener('submit', async (event) => {
     event.preventDefault()
-
+    const userId = localStorage.getItem('userId')
     const email = document.querySelector('#userEmailEdit').value
     const name = document.querySelector('#userNameEdit').value
     const password = document.querySelector('#userPasswordEdit').value
     const tag = document.querySelector('#tagEdit').value
     const mood = document.querySelector('#moodEdit').value
+    const tagSave = document.querySelector('.tagList1')
+    const moodSave = document.querySelector('.moodList1')
+
     try {
-        let user = await axios.put(`${backEndUrl}/edit`, {
+      // const userId = response.data.user.id
+      // localStorage.getItem({userId})
+        const user = await axios.put(`${backEndUrl}/user/edit/${userId}`, {
           where: {
             name: name,
             email: email,
@@ -157,15 +163,15 @@ const showLoggedIn = () => {
             tag: tag
           }
         })
-        // localStorage.getItem('userId', userId)
         localStorage.setItem('name', name)
-        // localStorage.setItem('userId', userId)
+        localStorage.setItem('userId', userId)
         localStorage.setItem('email', email)
         localStorage.setItem('password', password)
         localStorage.setItem('tag', tag)
         localStorage.setItem('mood', mood)
-        moodSave.innerText = response.data.user.mood
-        tagSave.innerText = response.data.user.tag
+        moodSave.innerText = mood
+        tagSave.innerText = tag
+
         showLoggedIn()
         alert('Get iLLuminated!!')
         showProfile()
@@ -178,9 +184,11 @@ const showLoggedIn = () => {
 
 document.querySelector('#profile-link').addEventListener('click', async (event) => {
     event.preventDefault()
+    const userId = localStorage.getItem('userId')
+
   // const userId = response.data.user.id
   // localStorage.getItem('userId', userId)
-  let response = await axios.get(`${backEndUrl}//profile`, {}, {
+  let response = await axios.get(`${backEndUrl}/profile/${userId}`, {}, {
           headers: {
               authorization: userId
           }
