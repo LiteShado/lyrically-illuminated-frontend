@@ -1,197 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./style.css">
-        <title>Document</title>
-    </head>
-    <body>
-        <nav>
-            <span id="home-link" class="nav-link">Home</span>
-            <span id="signup-link" class="nav-link">Sign Up</span>
-            <span id="login-link" class="nav-link">Log In</span>
-            <span id="logout-link" class="nav-link">Log Out</span>
-            <span id="profile-link" class="nav-link">Profile</span>
-        <div>
-            <div>
-                <h1 class="lyrical">Lyrically iLLuminated</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>W E L P!</title>
+</head>
+<body>
+  <div class="border2">
+  <div class="border1">
+    <nav>
+        <span id="home-link" class="nav-link">Home</span>
+        <span id="signup-link" class="nav-link">Sign Up</span>
+        <span id="login-link" class="nav-link">Login</span>
+        <span id="logout-link" class="nav-link">Logout</span>
+        <span id="profile-link" class="nav-link">Profile</span>
+        <span id="delete-link" class="nav-link">Delete</span>
+        <span id="edit-link" class="nav-link">Edit</span>
+    </nav>
+      <section id="home-content">
+          <h1>Lyrically iLLuminated!!</h1>
+        <br>
+        <br>
+      </section>
 
-                <section id="logout">
-                    <h1>You have been logged out!</h1>
-                <!-- LOG IN OPTION -->
+      <section class="hidden" id="signup-content">
+        <form id="signup">
+          <br>
+          <br>
+          <br>
+          <label for="userName">Name</label>
+          <input type="text" id="signUpName">
 
-                <section id="loggingin">
-                <h1 class="logInTitle">Log In</h1>
-                <form id="loginForm">
-                    <label for="userEmail">Email</label>
-                    <input type="text" id="userEmail">
+          <label for="userEmail">Email</label>
+          <input type="text" id="signUpEmail">
 
-                    <label for="userPassword">Password</label>
-                    <input type="password" id="userPassword">
-                    <br>
-                    <br>
-                    <button class="loginButton">Log In!</button>
-                </form>
-                </section>
-            </section>
+          <label for="userPassword">Password</label>
+          <input type="password" id="signUpPassword">
 
-            <section id="logoutt">
-                <!-- SIGN UP OPTION -->
+          <br>
+          <br>
 
-                <div id="signup" class="signUpTitle">
-                    <h1>Sign Up!</h1>
-                <form id="signup-form">
-                <label for="userName">Name</label>
-               <input type="text" id="signupName">
+          <label for="userMood">What is your Mood?</label>
+          <select name="mood" id="mood">
+              <option value="Happy">Happy</option>
+              <option value="Sad">Sad</option>
+              <option value="Determined">Determined</option>
+           </select>
 
-               <label for="userEmail">Email</label>
-               <input type="text" id="signupEmail">
+           <label for="userTag">What is your Focus?</label>
+           <select name="tag" id="tag">
+               <option value="Success">Success</option>
+               <option value="Party">Party</option>
+               <option value="Love">Love</option>
+           </select>
+           <button class="submit">Sign Up!</button>
+        </form>
+      </section>
 
-               <label for="userPassword">Password</label>
-               <input type="password" id="signupPassword">
+      <section class="hidden" id="login-content">
+        <form id="login">
+          <br>
+          <br>
+          <br>
+          <label for="login-email">Email</label>
+          <input type="text" id="login-email">
 
-               <br>
-               <br>
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password">
+          <br>
+          <br>
+          <input type="submit" value="Log In!">
+        </form>
+      </section>
 
-               <label for="userMood">What is your Mood?</label>
-               <select name="mood" id="mood">
-                   <option value="Happy">Happy</option>
-                   <option value="Sad">Sad</option>
-                   <option value="Determined">Determined</option>
-                </select>
+      <section class="hidden" id="profile">
+          <h1>Welcome Back! <p class="welcomeUser"></p></h1>
+        <br>
+        <br>
+        <br>
+        <h2>Your saved mood:</h2>
+        <ul>
+            <li class="moodList1"></li>
+        </ul>
+        <h2>Your saved tag:</h2>
+        <ul>
+            <li class="tagList1"></li>
+        </ul>
 
-                <label for="userTag">What is your Focus?</label>
-                <select name="tag" id="tag">
-                    <option value="Success">Success</option>
-                    <option value="Party">Party</option>
-                    <option value="Love">Love</option>
-                </select>
-                <!-- <input type="submit" value="signup"> -->
-                <button class="submit">Sign Up!</button>
-            </form>
-            <br>
+      </section>
 
-        </div>
-        </section>
-        </div>
-        </div>
+      <section class="hidden" id="editaccount">
+        <br>
+        <br>
+        <br>
+        <h1>Edit Account Info</h1>
+        <form id="edit-form">
+            <label for="userNameEdit">Name</label>
+            <input type="text" id="userNameEdit">
 
+            <label for="userEmailEdit">Email</label>
+            <input type="text" id="userEmailEdit">
 
-        <section id="welcomeback">
-            <h1 class="userLogin">Welcome back!<p id="welcomeUser"></p> </h1>
-
-        <!-- //////////////////////////////////// -->
-        <!-- AFTER LOG IN -->
-        <!-- /////////////////////////////////// -->
-        <!-- <section id="saved"> -->
-                    <p>Your saved mood:</p>
-                    <ul>
-                        <li class="moodList1"></li>
-                    </ul>
-                    <p>Your saved tag:</p>
-                    <ul>
-                        <li class="tagList1"></li>
-                    </ul>
-            </form>
-        </section>
-
-        <section id="editaccount">
-
-            <h1 id="newInputForm">Edit Account Info</h1>
-            <form id="edit-form">
-                <label for="userName">Name</label>
-                <input type="text" id="userName">
-
-                <label for="userEmail">Email</label>
-                <input type="text" id="userEmail">
-
-                <label for="userPassword">Password</label>
-                <input type="password" id="userPassword">
-
-                <br>
-                <br>
-
-                <label for="userMood">What is your Mood?</label>
-                <select name="mood" id="mood">
-                    <option value="Happy">Happy</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Determined">Determined</option>
-                </select>
-
-                <label for="userTag">What is your Focus?</label>
-                <select name="tag" id="tag">
-                    <option value="Success">Success</option>
-                    <option value="Party">Party</option>
-                    <option value="Love">Love</option>
-                </select>
-                <input type="submit" value="Submit Changes">
-            </form>
-        </section>
-        <!-- //////////////////////////////////// -->
-        <!-- ACCOUNT INFO -->
-        <!-- /////////////////////////////////// -->
-        <section id="home-content">
-        <!-- <form id="success">
-            <label for="userName"></label>
-            <input type="text" id="successName">
-
-            <label for="userEmail"></label>
-            <input type="text" id="successEmail">
-
-            <label for="userMood"></label>
-            <input type="text" id="successMood">
-
-            <label for="userTag"></label>
-            <input type="text" id="successTag">
-
-            <input type="submit" value="iLLuminate Me!"> -->
+            <label for="userPasswordEdit">Password</label>
+            <input type="password" id="userPasswordEdit">
 
             <br>
+            <br>
 
-            <!-- //////////////////////////////////// -->
-            <!-- MUSIC PRESENTATION -->
-            <!-- /////////////////////////////////// -->
+            <label for="userMood">What is your Mood?</label>
+            <select name="mood" id="moodEdit">
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Determined">Determined</option>
+            </select>
 
-            <section id="home-content">
-                <div>
-                    <h1 class="userName">Are you ready to be iLLuminated?</h1>
-                    <button class="nextPage">Next</button>
-                </div>
-                <br>
-                <br>
-            <section id="userSong">
-                <div class="viewUserSong">
-                    <h2>You've been iLLuminated!</h2>
-                    <ul>
-                        <li class="musicTitle"></li>
-                        <li class="musicArtist"></li>
-                        <li class="musicSong"></li>
-                    </ul>
-                    <br>
-                    <h2 class="musicLyric">The iLLumination:</h2>
-                    <button class="nextSong">Next Song</button>
+            <label for="userTag">What is your Mood?</label>
+            <select name="mood" id="tagEdit">
+                <option value="Success">Success</option>
+                <option value="Party">Party</option>
+                <option value="Love">Love</option>
+            </select>
+            <input class="submit" value="submit"></input>
+        </form>
+      </section>
 
-                </div>
-            </div>
-        </section>
-            <!-- //////////////////////////////////// -->
-            <!-- DELETE ACCOUNT -->
-            <!-- /////////////////////////////////// -->
-
-        <section id="delete">
-            <form id="delete">
-                <h1 class="deleteTitle hidden">Delete Account</h1>
-                <button type="submit">Delete</button>
-            </form>
+      <section class="hidden" id="delete-content">
+          <br>
+          <br>
+        <h1>Delete Your Profile</h1>
+        <form id="delete">
+            <br>
+            <br>
+            <input type="submit" value="submit"></input>
+        </form>
         </section>
 
+      <section class="hidden" id="logout-content">
+          <br>
+          <br>
+        <h1>Log Out</h1>
+        <form id="logout-form">
+            <br>
+            <br>
+            <input type="submit" value="submit"></input>
+        </form>
+        </section>
+  </div>
+</div>
 
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js "></script>
+    <script async defer type="text/javascript" src="./main.js"></script>
 
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-        <script type="text/javascript" src="./main.js" defer></script>
-    </body>
+</body>
 </html>
