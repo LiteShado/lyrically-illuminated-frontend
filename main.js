@@ -70,7 +70,7 @@ const showLoggedIn = () => {
 
 
   document.querySelector('#login').addEventListener('submit', async (event) => {
-    e.preventDefault()
+    event.preventDefault()
 
   const email = document.querySelector('#login-email').value
   const password = document.querySelector('#login-password').value
