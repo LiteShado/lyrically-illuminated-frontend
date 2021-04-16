@@ -181,7 +181,7 @@ document.querySelector('#profile-link').addEventListener('click', async (event) 
     event.preventDefault()
   // const userId = response.data.user.id
   // localStorage.getItem('userId', userId)
-  let response = await axios.get(`${backEndUrl}/${userId}/profile`, {}, {
+  let response = await axios.get(`${backEndUrl}//profile`, {}, {
           headers: {
               authorization: userId
           }
