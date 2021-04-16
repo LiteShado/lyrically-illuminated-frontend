@@ -30,7 +30,7 @@ app.get('/style.css', (req, res) => {
   res.type('css').sendFile(filepath)
 })
 
-const port = process.env.port || 2000
+const port = process.env.port || 3000
 
 app.listen(port, () => {
     routesReport.print()
